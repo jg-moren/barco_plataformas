@@ -11,12 +11,8 @@ class Barco{
     updatePosition(){
         if (this.positions.length == 0)return;
         const point = this.positions[0];
-        //console.log((point.coo.x==this.coo.x) && (point.coo.y==this.coo.y));
-
         if((point.coo.x==this.coo.x) && (point.coo.y==this.coo.y)){
             this.positions.shift();
-            //console.log(point.coo,this.coo);
-
             return;
         }
         const x = this.coo.x - (this.cos(point.coo) * this.speed);
@@ -42,7 +38,7 @@ class Barco{
     }
 
     isMoving(){
-        return (this.positions.length == 0);
+        return (this.positions.length != 0);
     }
 
     clearPosition(){
@@ -51,6 +47,11 @@ class Barco{
 
 
     draw(){ 
+        const size = 50;
+        const img = document.getElementById("barco");
+        ctx.drawImage(img, this.coo.x-(size/2), this.coo.y-(size/2),size, size);
+
+        /*
         const c = this.context;
         const color = "#FF0000";
         const r = 5;
@@ -60,5 +61,6 @@ class Barco{
         c.strokeStyle = 'transparent';
         c.fill();
         c.stroke();
+        */
     }
 }

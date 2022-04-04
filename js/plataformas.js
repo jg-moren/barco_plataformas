@@ -21,11 +21,16 @@ class Plataformas{
     }
     
     draw(){ 
+        const size = 50;
+        const img = document.getElementById("plataforma");
+        ctx.drawImage(img, this.coo.x-(size/2), this.coo.y-(size/2),size, size);
+        /*
         const c = this.context;
         const color = "#999999";        
         c.beginPath();
-        c.rect(this.coo.x-10, this.coo.y-10, 20, 20);
+        c.rect(this.coo.x-10, this.coo.y-10, 40, 40);
         c.fillStyle = color;
         c.fill();
+        */
     }
 }
